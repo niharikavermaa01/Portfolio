@@ -1,0 +1,179 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #0d1b2a;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #00c6ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 40%;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00c6ff;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  color: #fff !important;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+#button:hover {
+  box-shadow: 0 0 10px #00c6ff;
+
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 10%;
+  gap: 50px;
+}
+
+.hero-left img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 25px #00c6ff;
+}
+
+.hero-right h2 {
+  font-size: 1.4rem;
+  color: #00c6ff;
+  margin-bottom: 10px;
+}
+
+.hero-right h1 {
+  font-size: 2.5rem;
+  margin: 5px 0;
+}
+
+.hero-right h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.hero-right p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 450px;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.hero-buttons .btn.primary {
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #00c6ff;
+  text-decoration: none;
+}
+
+.hero-buttons .btn.primary:hover {
+  box-shadow: 0 0 25px #00c6ff;
+}
+
+.hero-buttons .btn.secondary:hover {
+  box-shadow: 0 0 25px #00c6ff;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  justify-content:left;
+  align-items: left;
+  gap: 60px;
+  padding: 40px 0;
+  background: #0e1e2e;
+}
+
+.stats h1{
+  margin-left: 30px;
+}
+
+.stats ul li{
+  font-size: small;
+}
+
+.skills-logos {
+  display: flex;
+  justify-content:left;   /* centers all logos */
+  align-items: center;       /* aligns vertically */
+  gap: 30px;                 /* space between each logo */
+  margin: 20px 0;
+  flex-wrap: wrap; 
+          
+}
+
+.stats .about ul li img{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Responsive - for small mobiles */
+@media (max-width: 480px) {
+  .stats .about ul li img {
+    gap: 15px;  /* tighter space on very small screens */
+  }
+  .stats .about ul li img {
+    width: 40px;
+    height: 40px;
+  }
+}
