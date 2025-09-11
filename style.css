@@ -221,6 +221,9 @@ body {
     height: 80%;
     top: 70px;
   }
+  .skills.active {
+  right: 50px;
+  }
 
   .skills .frontend,
   .skills .backend,
