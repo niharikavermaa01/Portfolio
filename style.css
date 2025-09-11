@@ -214,6 +214,27 @@ body {
   transition: right 0.5s ease;
   z-index: 1000;
 }
+
+@media (max-width: 400px) {
+  .skills {
+    width: 90%;
+    height: 80%;
+    top: 70px;
+  }
+
+  .skills .frontend,
+  .skills .backend,
+  .skills .databases {
+    min-height: 200px;
+    max-height: 230px;
+  }
+
+  .skills ul li img {
+    height: 35px;
+    width: 35px;
+  }
+}
+
 .container{
   position: relative;
   display: flex;
@@ -292,6 +313,7 @@ body {
    margin-bottom: 10px;
    margin-left: 10px;
    margin-right: 10px;
+
 }
 
 
@@ -325,24 +347,6 @@ body {
   }
 }
 
-/* Skills Section Responsive */
-.skills {
-  position: fixed;
-  top: 80px;
-  right: -100%;
-  width: 60%;
-  max-width: 900px;
-  height: 75%;
-  border-radius: 20px;
-  background-color: #540b0d;
-  box-shadow: 0 0 12px black;
-  backdrop-filter: blur(8px);
-  transition: right 0.5s ease;
-  z-index: 1000;
-  padding: 20px;
-  overflow-y: auto;
-}
-
 .skills.active {
   right: 10px;
 }
@@ -351,83 +355,4 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
-}
-
-/* Skill Cards */
-.skills .frontend,
-.skills .backend,
-.skills .databases {
-  background: linear-gradient(135deg, #a4161a, #6a040f);
-  border-radius: 20px;
-  padding: 12px;
-  width: 100%;
-  min-height: 230px;
-  max-height: 260px;
-  overflow-y: auto;
-}
-
-.skills .frontend h4,
-.skills .backend h4,
-.skills .databases h4 {
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.skills ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0;
-  margin: 10px 0;
-}
-
-.skills ul li img {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-}
-
-.skills .frontend div,
-.skills .backend div,
-.skills .databases div {
-  font-size: 12px;
-  line-height: 1.4;
-  text-align: justify;
-}
-
-/* Scrollbars inside skill cards */
-.skills .frontend div::-webkit-scrollbar,
-.skills .backend div::-webkit-scrollbar,
-.skills .databases div::-webkit-scrollbar {
-  width: 4px;
-}
-.skills .frontend div::-webkit-scrollbar-thumb,
-.skills .backend div::-webkit-scrollbar-thumb,
-.skills .databases div::-webkit-scrollbar-thumb {
-  background: #fff3b0;
-  border-radius: 4px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  .skills {
-    width: 90%;
-    height: 80%;
-    top: 70px;
-  }
-
-  .skills .frontend,
-  .skills .backend,
-  .skills .databases {
-    min-height: 200px;
-    max-height: 230px;
-  }
-
-  .skills ul li img {
-    height: 35px;
-    width: 35px;
-  }
 }
