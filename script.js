@@ -1,35 +1,52 @@
-const skillsPanel = document.querySelector(".skills");
-const closeBtn = document.querySelector(".crossbtn");
-const body = document.querySelector("body");
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.querySelector(".nav-links");
+document.addEventListener('DOMContentLoaded', () => {
 
-// Open when navbar "Skills" is clicked
-document.querySelector('.nav-links a[href="#skills"]').addEventListener("click", function(e) {
-  e.preventDefault();
-  skillsPanel.classList.add("active");
-});
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-closeBtn.addEventListener("click", function() {
-  skillsPanel.classList.remove("active");
-});
+  // --- Reusable Panel Logic ---
+  const setupPanel = (buttonSelector, panelSelector, activeClass) => {
+    const openButton = document.querySelector(buttonSelector);
+    const panel = document.querySelector(panelSelector);
+    // Find any close button inside the panel, regardless of its specific class
+    const closeButton = panel.querySelector('[class*="crossbtn"]');
 
-// remove skill panel when click scroll
-window.addEventListener("scroll", () => {
-  if (skillsPanel.classList.contains("active")) {
-    skillsPanel.classList.remove("active");
-  }
-});
+    if (!openButton || !panel || !closeButton) {
+      console.error("Panel elements not found for:", buttonSelector);
+      return;
+    }
 
-// responsiveness
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("open");
-});
+    openButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Close other panels before opening a new one
+      document.querySelectorAll('.slide-in-panel').forEach(p => p.classList.remove('is-visible'));
+      panel.classList.add('is-visible');
+    });
 
-document.querySelectorAll(".nav-links li a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    hamburger.classList.remove("open");
+    closeButton.addEventListener('click', () => {
+      panel.classList.remove('is-visible');
+    });
+  };
+
+  // Initialize both panels
+  setupPanel('a[href="#skills"]', '#skills-panel', 'is-visible');
+  setupPanel('a[href="#experience"]', '#experience-panel', 'is-visible');
+
+
+  // --- Hamburger Menu Logic ---
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('open');
   });
+
+  // --- Close mobile menu when a link is clicked ---
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      // Check if the mobile menu is active before removing classes
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('open');
+      }
+    });
+  });
+
 });
