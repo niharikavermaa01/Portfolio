@@ -404,3 +404,11 @@ body {
     display: none; /* Hide images in timeline on mobile to save space */
   }
 }
+
+.contact a{
+  color: #f8f4da;
+  text-decoration: none;
+}
+.contact span{
+  color: #a2d2ff;
+}
